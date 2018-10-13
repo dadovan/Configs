@@ -10,6 +10,7 @@ apt-get install evince # PDF reader
 apt-get install htop
 apt-get install git
 apt-get install terminator
+apt-get install glances
 # ???
 apt-get install krusader
 apt-get install mc
