@@ -7,6 +7,8 @@ Initial manual setup:
 * [Hyper-V enhanced mode 1](https://www.tenforums.com/virtualization/107147-guide-how-run-ubuntu-18-04-enhanced-mode-hyper-v.html)
 * [Hyper-V enhanced mode 2](https://blogs.technet.microsoft.com/virtualization/2018/02/28/sneak-peek-taking-a-spin-with-enhanced-linux-vms)
 
+* Change shift-keypad behavior to match Windows.  Use Gnome Tweaks > Keyboard and Mouse > Additional Layout options > Miscellaneous compatibility options > "Num Lock on: digits; Shift for arrow keys. Num Lock off: arrow keys (as in Windows)"
+
 Manual adds:
 
 * [Visual Studio Code](https://code.visualstudio.com/docs/setup/linux)
