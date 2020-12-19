@@ -1,4 +1,4 @@
-# Keyboard shortcuts (M: Alt, S: Shift)
+# Keyboard shortcuts (C: Control, M: Alt, S: Shift)
 
 ## Window related
 
