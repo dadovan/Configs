@@ -5,7 +5,20 @@
 ## Arch:
 
 ### Base
-sudo pacman -Sy vim tmux git
+sudo pacman -Sy vim git
+
+### Configs
+
+mkdir ~/.config
+mkdir ~/git
+cd ~/git
+git clone https://github.com/dadovan/Configs.git
+cp -r ~/git/Configs/.config/tmux ~/.config/
+cp -r ~/git/Configs/.config/vim ~/.config/
+cp -r ~/git/Configs/.config/zsh ~/.config/
+
+echo "source ~/.config/zsh/.zshrc" > ~/.zshrc
+echo ":source ~/.config/vim/.vimrc" > ~/.vimrc
 
 ### nftables/SSH
 sudo pacman -Sy nftables openssh
@@ -24,20 +37,6 @@ mkdir ~/.ssh
 chmod 700 ~/.ssh
 
 # TODO: SSHGuard + key-based ssh?  https://austingwalters.com/configure-ssh-on-an-arch-linux-server/
-
-
-### Configs
-
-mkdir ~/.config
-mkdir ~/git
-cd ~/git
-git clone https://github.com/dadovan/Configs.git
-cp -r ~/git/Configs/.config/tmux ~/.config/tmux
-cp -r ~/git/Configs/.config/vim ~/.config/vim
-cp -r ~/git/Configs/.config/zsh ~/.config/zsh
-
-echo "source ~/.config/zsh/.zshrc" > ~/.zshrc
-echo ":source ~/.config/vim/.vimrc" > ~/.vimrc
 
 ### Zsh
 
@@ -67,6 +66,7 @@ sudo pacman -Sy awesome rofi
 
 ### Additional packages
 sudo pacman -Sy man-db less man-pages  # https://wiki.archlinux.org/index.php/Man_page
+sudo pacman -Sy tmux
 sudo pacman -Sy fzf
 sudo pacman -Sy htop mc ncdu
 sudo pacman -Sy weechat
