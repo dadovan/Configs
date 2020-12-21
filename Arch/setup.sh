@@ -2,6 +2,12 @@
 
 # TODO: Move git Configs to the start so the setup script can handle ssh setup
 
+### Manual Steps:
+## curl https://raw.githubusercontent.com/dadovan/Configs/master/Arch/setup.sh > ~/setup.sh
+## chmod +x ~/setup.sh
+## ./setup.sh
+## rm ~/setup.sh
+
 ## Arch:
 
 ### Base
@@ -28,7 +34,7 @@ sudo systemctl enable nftables.service
 sudo systemctl start nftables.service
 
 sudo sed -i 's/#Port 22/Port 4316/' /etc/ssh/sshd_config
-sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogon no/' /etc/ssh/sshd_config
+sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config
 sudo sed -i 's/#X11Forwarding no/X11Forwarding yes/' /etc/ssh/sshd_config
 sudo systemctl enable sshd.service
 sudo systemctl start sshd.service
@@ -61,14 +67,32 @@ makepkg -si
 
 yay -S nerd-fonts-fira-code
 
-### Desktop environment
-sudo pacman -Sy awesome rofi
+# picom?
+# clipman  clipboard manager
+# trayer  # system tray
+# dunst   notification system
+# file manager: pcmanfm, thunar
+# gimp, inkscape
+# microsoft edge
+# vscode
+# App outlet (Ap?
 
-### Additional packages
+### Additional terminal packages
 sudo pacman -Sy man-db less man-pages  # https://wiki.archlinux.org/index.php/Man_page
 sudo pacman -Sy tmux
 sudo pacman -Sy fzf
 sudo pacman -Sy htop mc ncdu
 sudo pacman -Sy weechat
+
+### Desktop environment
+sudo pacman -Sy awesome rofi
+sudo pacman -Sy picom # Compost
+
+### X packages
+sudo pacman -Sy thunar
+sudo pacman -Sy vlc
+yay -S stacer-bin
+
+yay -S st
 
 gem install mdless  # https://github.com/ttscoff/mdless
