@@ -43,7 +43,7 @@ export SAVEHIST=10000   # Max events in history file
 export GEM_HOME="$HOME/.gem"
 export PATH=$PATH:~/.gem/ruby/2.7.0/bin
 
-[[ -n $SSH_CLIENT ]] && export DISPLAY=$(echo $SSH_CLIENT | awk '{print $1}'):0
+# [[ -n $SSH_CLIENT ]] && export DISPLAY=$(echo $SSH_CLIENT | awk '{print $1}'):0
 
 ##################################################################################################
 ## Aliases
@@ -72,9 +72,11 @@ alias untar="tar -zxvf"
 #bindkey '^[[A' history-substring-search-up      # Up arrow
 #bindkey '^[[B' history-substring-search-down    # Down arrow
 bindkey '\e' kill-whole-line                    # ESC (note a pause as zsh listens for a second keystroke)
+bindkey '^[[H' beginning-of-line                # Home
 bindkey '^[[1~' beginning-of-line               # Home
 bindkey '^[[1;5H' beginning-of-line             # Ctrl-Home
 bindkey '^[[4~' end-of-line                     # End
+bindkey '^[[F' end-of-line                      # End
 bindkey '^[[1;5F' end-of-line                   # Ctrl-End
 bindkey '^[[1;5C' forward-word                  # Ctrl-Right
 bindkey '^[[1;5D' backward-word                 # Ctrl-Left
