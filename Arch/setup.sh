@@ -31,11 +31,11 @@ echo ":source ~/.config/vim/.vimrc" > ~/.vimrc
 ## nftables/SSH
 sudo pacman -Syu nftables openssh
 
-sudo sed -i 's/tcp dport ssh accept/tcp dport 4316 accept\n    tcp dport 3389 accept/' /etc/nftables.conf
+sudo sed -i 's/tcp dport ssh accept/tcp dport 4316 accept/' /etc/nftables.conf
 sudo systemctl enable nftables.service
 sudo systemctl start nftables.service
 
-sudo sed -i 's/tcp dport ssh accept/tcp dport 4316 accept\n\n    # allow xrdp\n    tcp dport 3389 accept/' /etc/nftables.conf
+sudo sed -i 's/#Port 22/Port 4316/' /etc/ssh/sshd_config
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config
 sudo sed -i 's/#X11Forwarding no/X11Forwarding yes/' /etc/ssh/sshd_config
 sudo systemctl enable sshd.service
@@ -51,7 +51,7 @@ chmod 700 ~/.ssh
 sudo pacman -Syu zsh
 chsh -s /bin/zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-Syuntax-highlighting.git ~/.config/zsh/zsh-Syuntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-completions.git ~/.config/zsh/zsh-completions
 
 #export GEM_HOME="$HOME/.gem"
@@ -77,6 +77,7 @@ yay -S nerd-fonts-fira-code
 sudo pacman -Syu xorg xorg-apps xorg-xinit
 sudo pacman -Syu awesome rofi
 sudo pacman -Syu picom  # Compositor
+sudo pacman -Syu pulseaudio
 
 # https://github.com/dylanaraps/neofetch/blob/master/neofetch, get_model()
 if [[ -f /sys/devices/virtual/dmi/id/product_name || -f /sys/devices/virtual/dmi/id/product_version ]]; then
@@ -132,3 +133,8 @@ yay -S st
 # App outlet (Ap?
 
 # gem install mdless  # https://github.com/ttscoff/mdless
+
+
+### Working:
+sudo pacman -Syu x2goserver
+sudo x2godbadmin --createdb
