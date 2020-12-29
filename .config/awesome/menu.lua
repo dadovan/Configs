@@ -14,8 +14,8 @@ function menu:init()
                 { "vlc", "vlc" }
             }
         },
-        { "Restart Awesome", awesome.restart },
-        { "Quit Awesome", awesome.quit }
+        { "Restart Awesome", function() awesome.restart() end },
+        { "Quit Awesome", function() awesome.quit() end }
     }})
 
     self.launcher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mainmenu })

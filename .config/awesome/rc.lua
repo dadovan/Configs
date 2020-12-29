@@ -1,11 +1,17 @@
--- clock, and CPU/MEM stats
--- Nice r-click menu.  Awesome, Applications, Places, specific apps, exit
--- app-specific hotkeys
--- apps should auto-show in r-click menu
--- Fixed-width apps in menu
+-- On (hotkey), hover text over clients showing resource usage/pid/etc.  https://youtu.be/-yNALqST1-Y?t=44
+-- Use polybar to add CPU/mem/net to statusbar?
+-- Allow for app-specific hotkeys based on current client window
+-- Create new layout where main window is 66% of screen
+    -- https://www.uninformativ.de/git/awesome-vain/file/README.html
+    -- https://github.com/lcpz/vain-again
+-- Consider making titlebars optional
+    -- https://www.reddit.com/r/awesomewm/comments/hap1qn/smart_borders_full_titlebar_functionality_without/
+    -- https://github.com/intrntbrn/smart_borders
+-- Nice home/r-click menu.  Awesome, Applications (auto-populated), Places, specific apps, exit.  Size should auto-adjust and include icons
+-- Slightly darken non-current windows
+-- Subtle look, rounded corners: https://github.com/mut-ex/awesome-wm-nice
+-- exec /usr/bin/awesome >> ~/.cache/awesome/stdout 2>> ~/.cache/awesome/stderr into .xinitrc (or ~/.xsession)
 -- Nord theme?
--- Tile window format should incrase size of main window
--- shift-num pad should always select
 
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
@@ -102,6 +108,10 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+
+--!Create a popup month-calendar
+month_calendar = awful.widget.calendar_popup.month()
+month_calendar:attach( mytextclock, "tr")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -403,9 +413,7 @@ client.connect_signal("request::titlebars", function(c)
         },
         { -- Right
             awful.titlebar.widget.floatingbutton (c),
-            awful.titlebar.widget.maximizedbutton(c),
             awful.titlebar.widget.stickybutton   (c),
-            awful.titlebar.widget.ontopbutton    (c),
             awful.titlebar.widget.closebutton    (c),
             layout = wibox.layout.fixed.horizontal()
         },

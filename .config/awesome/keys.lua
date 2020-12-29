@@ -16,6 +16,7 @@ function _launch_thunar()
 end
 
 function keys:init()
+    -- Help with keys: https://superuser.com/a/1255946
     globalkeys = gears.table.join(
         awful.key({ modkey }, "/", function(t) help:show() end, {description="show help", group="awesome"}),
         awful.key({ modkey, "Shift" }, "/", hotkeys_popup.show_help, {description="show help", group="awesome"}),
