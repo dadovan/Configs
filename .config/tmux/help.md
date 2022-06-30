@@ -1,35 +1,40 @@
-# Keyboard shortcuts (C: Control, M: Alt, S: Shift)
-
-## Window related
-
---|--|--
-Prefix | Key | Action
-- | M-[1..0] | Switch to window 1 - 10
-- | M-S-[1..0] | Move pane to window 1 - 10
-C-b | u | Select one window left
-C-b | o | Select one window right
-C-b | y | Select last window
-C-b | - | Split window horizontally
-C-b | s-\ | Split window vertically
-C-b | t | Layout: main vertical
-C-b | b | Layout: main horizontal
-C-b | g | Layout: tiled
-
-## Pane related
-
---|--|--
-Prefix | Key | Action
-- | M-S-q | Kills the pane
-C-b | j | Select one pane left
-C-b | i | Select one pane up
-C-b | l | Select one pane right
-C-b | , | Select one pane down
-C-b | U | Pane becomes large primary
-
-## Other
-
---|--|--
-Prefix | Key | Action
-C-b | r | Reload the config
-C-b | ? | Show this help screen in large primary
-- | M-~ | Show top in upper-right pane
++-------------------------------------------------------+---------------+
+|    Global                           (C: Control, M: Alt, S: Shift)    |
++-------------------------------------------------------+---------------+
+| Reload config                                         | C-b  R        |
+| System monitor                                        | C-b  `        |
+| This help                                             | C-b  ?        |
+|                                                       |               |
++-------------------------------------------------------+---------------+
+|    Window                                                             |
++-------------------------------------------------------+---------------+
+| Split horizontal                                      | C-b  -        |
+| Split vertical                                        | C-b  \        |
+|                                                       |               |
+| Switch to window *n*                                  | M-[0..9]      |
+| Last window                                           | C-b  y        |
+| Next window                                           | C-b  n        |
+| Previous window                                       | C-b  p        |
+|                                                       |               |
+| Layout: main-vertical                                 | C-b  t        |
+| Layout: main-horizontal                               | C-b  b        |
+| Layout: tiled                                         | C-b  g        |
+|                                                       |               |
+| Make current pane main with main-vertical layout      | C-b  U        |
+|                                                       |               |
+| Rename window                                         | C-b  r        |
+|                                                       |               |
++-------------------------------------------------------+---------------+
+|    Pane                                                               |
++-------------------------------------------------------+---------------+
+| Select pane to left                                   | C-b  j        |
+| Select pane above                                     | C-b  i        |
+| Select pane to right                                  | C-b  l        |
+| Select pane below                                     | C-b  ,        |
+|                                                       |               |
+| Toggle maximized                                      | C-b  z        |
+|                                                       |               |
+| Move pane and focus to window *n*                     | M-S-[0..9]    |
+|                                                       |               |
+| Kill pane                                             | M-F4          |
++-------------------------------------------------------+---------------+
