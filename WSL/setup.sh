@@ -24,8 +24,10 @@ cd ~/git
 git clone https://github.com/dadovan/Configs.git
 cp -r ~/git/Configs/.config/tmux ~/.config/
 cp -r ~/git/Configs/.config/vim ~/.config/
+cd ~
 
 echo "source ~/.config/zsh/.zshrc" > ~/.zshrc
+echo "source-file ~/.config/tmux/.tmux.conf" > ~/.tmux.conf
 
 ## Zsh
 
@@ -40,15 +42,11 @@ chsh -s /bin/zsh
 # Apps
 
 sudo apt install bat                        # cat replacement @ https://github.com/sharkdp/bat
+sudo apt install exa                        # ls replacement @ https://the.exa.website/
 sudo apt install fzf                        # Command-line fuzzy finder @ https://github.com/junegunn/fzf
-sudo apt install mc                         # Midnight Commander
+# sudo apt install mc                         # Midnight Commander
+sudo apt install micro                      # Micro editor @ https://micro-editor.github.io/
 sudo apt install ncdu                       # NCurses Disk Usage @ https://dev.yorhel.nl/ncdu
 sudo apt install neofetch
-sudo apt install stacer                     # Sytem monitoring and config @ https://oguzhaninan.github.io/Stacer-Web/
-
-# TODO: Ensure these release versions are up-to-date
-curl -L https://github.com/zyedidia/micro/releases/download/v2.0.10/micro-2.0.10-amd64.deb -o micro-2.0.10-amd64.deb
-sudo apt install ./micro-2.0.10-amd64.deb
-
-curl -L https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip -o exa-linux-x86_64-v0.10.1.zip
-sudo unzip -j /mnt/c/Users/dadov/Downloads/exa-linux-x86_64-v0.10.1.zip bin/exa -d /usr/local/bin
+sudo apt install ranger                     # Ranger file manager @ https://ranger.github.io/
+# sudo apt install stacer                     # Sytem monitoring and config @ https://oguzhaninan.github.io/Stacer-Web/
