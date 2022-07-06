@@ -1,0 +1,68 @@
+### Info
+# Configuration Docs: https://starship.rs/config/
+# Symbols:        ➜     🕘 ﯙ 🔋 ⚡️ 💀
+# Nord Theme: https://www.nordtheme.com/docs/colors-and-palettes
+
+
+### Configuration
+
+format="""
+[╭](fg:#3B4252 bg:#2E3440)\
+[$username](bg:#3B4252)[](fg:#3B4252 bg:#4C566A)\
+$directory[ $git_branch$git_status ](fg:#D8DEE9 bg:#4C566A)[$fill]()\
+[](fg:#434C5E bg:#4C566A)$cmd_duration$character[$time](bg:#434C5E)\
+[](fg:#3B4252 bg:#434C5E)[$battery](bg:#3B4252)\
+[](fg:#3B4252 bg:#2E3440)
+[╰](fg:#3B4252 bg:#2E3440)\
+[ ](bg:#3B4252)[](fg:#3B4252 bg:#2E3440) """
+
+[character]
+format = "$symbol"
+success_symbol = "[  ](bold fg:green bg:#434C5E)"
+error_symbol = "[  ](bold fg:red bg:#434C5E)"
+
+[battery]
+full_symbol = "[](green bg:#3B4252)"
+charging_symbol = "[](green bg:#3B4252)"
+discharging_symbol = "[](red bg:#3B4252)"
+unknown_symbol = "(!!)(bold red bg:#3B4252)"
+empty_symbol = "[](bold red bg:#3B4252)"
+format = " [$symbol $percentage]($style) "
+
+[[battery.display]]
+threshold = 100
+style = "bg:#3B4252"
+
+[cmd_duration]
+min_time = 0
+format = "[ $duration](fg:#D8DEE9 bg:#434C5E)"
+show_milliseconds = true
+
+[directory]
+style = "fg:#D8DEE9 bg:#4C566A"
+format = "[  $path]($style)[$read_only]($read_only_style)"
+
+[fill]
+symbol = ""
+style = "fg:#4C566A bg:#4C566A"
+
+[git_branch]
+format = "ﯙ on [$symbol$branch(:$remote_branch)]($style) "
+style = "fg:#D8DEE9 bg:#4C566A"
+
+[git_status]
+style = "fg:#D8DEE9 bg:#4C566A"
+
+[time]
+disabled = false
+format = "🕘$time "
+time_format = "%T %p"
+#utc_time_offset = "-7"
+#time_range = "10:00:00-14:00:00"
+
+[username]
+style_user = "bg:#3B4252"
+style_root = "bold red bg:#3B4252"
+format = "[$user]($style) "
+disabled = false
+show_always = true
