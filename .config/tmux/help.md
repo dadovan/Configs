@@ -3,6 +3,8 @@
 +-------------------------------------------------------+---------------+
 | Reload config                                         | C-b  R        |
 | System monitor                                        | C-b  `        |
+| Popup terminal                                        | C-b  .        |
+| File manager                                          | C-b  e        |
 | This help                                             | C-b  ?        |
 |                                                       |               |
 +-------------------------------------------------------+---------------+
@@ -32,7 +34,7 @@
 | Select pane to right                                  | C-b  l        |
 | Select pane below                                     | C-b  ,        |
 |                                                       |               |
-| Toggle maximized                                      | C-b  z        |
+| Toggle maximized                                      | C-b  x        |
 |                                                       |               |
 | Move pane and focus to window *n*                     | M-S-[0..9]    |
 |                                                       |               |
