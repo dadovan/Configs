@@ -1,0 +1,9 @@
+brew install bat
+brew install btop
+brew install exa
+brew install git-delta
+brew install kitty
+brew install micro
+brew install starship
+brew install tmux
+brew install xplr

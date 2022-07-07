@@ -1,20 +1,20 @@
 ### Info
 # Configuration Docs: https://starship.rs/config/
-# Symbols:        ➜     🕘 ﯙ 🔋 ⚡️ 💀
+# Symbols:     ᐳ    ➜     🕘 ﯙ 🔋 ⚡️ 💀
 # Nord Theme: https://www.nordtheme.com/docs/colors-and-palettes
 
 
 ### Configuration
 
 format="""
-[╭](fg:#3B4252 bg:#2E3440)\
+[╭](fg:#3B4252 bg:#000000)\
 [$username](bg:#3B4252)[](fg:#3B4252 bg:#4C566A)\
 $directory[ $git_branch$git_status ](fg:#D8DEE9 bg:#4C566A)[$fill]()\
 [](fg:#434C5E bg:#4C566A)$cmd_duration$character[$time](bg:#434C5E)\
 [](fg:#3B4252 bg:#434C5E)[$battery](bg:#3B4252)\
-[](fg:#3B4252 bg:#2E3440)
-[╰](fg:#3B4252 bg:#2E3440)\
-[ ](bg:#3B4252)[](fg:#3B4252 bg:#2E3440) """
+[](fg:#3B4252 bg:#000000)
+[╰](fg:#3B4252 bg:#000000)\
+[ ](bg:#3B4252)[](fg:#3B4252 bg:#000000) """
 
 [character]
 format = "$symbol"
@@ -39,8 +39,12 @@ format = "[ $duration](fg:#D8DEE9 bg:#434C5E)"
 show_milliseconds = true
 
 [directory]
+truncation_length=8
 style = "fg:#D8DEE9 bg:#4C566A"
-format = "[  $path]($style)[$read_only]($read_only_style)"
+format = "[   $path]($style)[$read_only]($read_only_style)"
+
+[directory.substitutions]
+"/" = " ᐳ "
 
 [fill]
 symbol = ""
@@ -57,8 +61,6 @@ style = "fg:#D8DEE9 bg:#4C566A"
 disabled = false
 format = "🕘$time "
 time_format = "%T %p"
-#utc_time_offset = "-7"
-#time_range = "10:00:00-14:00:00"
 
 [username]
 style_user = "bg:#3B4252"
