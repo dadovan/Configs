@@ -1,20 +1,20 @@
 ### Info
 # Configuration Docs: https://starship.rs/config/
-# Symbols:     ᐳ    ➜     🕘 ﯙ 🔋 ⚡️ 💀
+# Symbols:     ᐳ    ➜     🕘 ﯙ   🔋 ⚡️ 💀
 # Nord Theme: https://www.nordtheme.com/docs/colors-and-palettes
 
 
 ### Configuration
 
 format="""
-[╭](fg:#3B4252 bg:#000000)\
+[╭](fg:#3B4252)\
 [$username](bg:#3B4252)[](fg:#3B4252 bg:#4C566A)\
 $directory[ $git_branch$git_status ](fg:#D8DEE9 bg:#4C566A)[$fill]()\
 [](fg:#434C5E bg:#4C566A)$cmd_duration$character[$time](bg:#434C5E)\
 [](fg:#3B4252 bg:#434C5E)[$battery](bg:#3B4252)\
-[](fg:#3B4252 bg:#000000)
-[╰](fg:#3B4252 bg:#000000)\
-[ ](bg:#3B4252)[](fg:#3B4252 bg:#000000) """
+[](fg:#3B4252)
+[╰](fg:#3B4252)\
+[ ](bg:#3B4252)[](fg:#3B4252) """
 
 [character]
 format = "$symbol"
@@ -51,7 +51,7 @@ symbol = ""
 style = "fg:#4C566A bg:#4C566A"
 
 [git_branch]
-format = "ﯙ on [$symbol$branch(:$remote_branch)]($style) "
+format = "  on [$symbol$branch(:$remote_branch)]($style) "
 style = "fg:#D8DEE9 bg:#4C566A"
 
 [git_status]
