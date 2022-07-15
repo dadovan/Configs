@@ -1,13 +1,9 @@
-# With help from:
-# https://thevaluable.dev/zsh-install-configure/
-
 cd $HOME
 
 ##################################################################################################
 ## Configure options
 
-DISABLE_AUTO_TITLE="true"                   # Disable auto-setting terminal title.
-HIST_STAMPS="%F %T"                         # History command output is YYYY-MM-DD HH-MM-SS (24h) (see 'man strftime' for details)
+DISABLE_AUTO_TITLE="true"           # Disable auto-setting terminal title.
 
 # Changing directories
 
@@ -23,6 +19,8 @@ setopt NOMATCH                      # Print error if filename expansion has no m
 
 # History
 
+HIST_STAMPS="%F %T"                 # History command output is YYYY-MM-DD HH-MM-SS (24h) (see 'man strftime' for details)
+
 setopt APPEND_HISTORY               # Append rather than overwrite history file.
 setopt AUTO_LIST                    # Automatically list choices on an ambiguous completion.
 setopt EXTENDED_HISTORY             # Write the history file in the ':start:elapsed;command' format.
@@ -35,15 +33,15 @@ zstyle ':completion:*' menu select  # Enables tab selection of multiple-choice i
 ##################################################################################################
 ## Exports
 
-export HISTFILE="$HOME/.zhistory"
+export HISTFILE=$HOME/.zhistory
 
 export HISTSIZE=10000   # Max events for internal history
 export SAVEHIST=10000   # Max events in history file
 
-export GEM_HOME="$HOME/.gem"
-export PATH=$PATH:~/.gem/ruby/2.7.0/bin
+# https://unix.stackexchange.com/a/34484
+export TERM=xterm-256color
 
-# [[ -n $SSH_CLIENT ]] && export DISPLAY=$(echo $SSH_CLIENT | awk '{print $1}'):0
+export PATH=$PATH:$HOME/.local/bin
 
 ##################################################################################################
 ## Aliases
@@ -54,11 +52,17 @@ DIRSTACKSIZE=20
 alias d='dirs -v'
 for index ({1..19}) alias "$index"="cd +${index}"; unset index
 
-alias grep="grep --color=auto"
-alias ls="colorls -lA --sd"
+alias bat=cat
+alias cd=z
+alias grep=rg
+alias ls="exa -l --icons"
+alias lsa="exa -l --icons -a"
+alias lss="exa --icons"
+alias lsas="exa --icons -a"
+alias lst="exa --icons -a -T -L 2"
 alias mc="mc -x"  # Enable mouse support under tmux - https://github.com/Bash-it/bash-it/issues/771
 alias ping="ping -c 5"
-alias tmux="tmux -f ~/.config/tmux/.tmux.conf"
+alias tldr=tealdeer
 alias untar="tar -zxvf"
 
 ##################################################################################################
@@ -89,8 +93,6 @@ bindkey '^[[13' delete-char                     # Delete
 ##################################################################################################
 ## Additional loads
 
-autoload -Uz ~/.config/zsh/prompt; prompt
-
 # https://github.com/zsh-users/zsh-completions
 fpath=($HOME/.config/zsh/zsh-completions/src $fpath)
 autoload -Uz compinit; compinit     # Initialize completions
@@ -103,3 +105,6 @@ source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
