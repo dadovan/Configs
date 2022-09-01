@@ -41,6 +41,7 @@ export SAVEHIST=10000   # Max events in history file
 # https://unix.stackexchange.com/a/34484
 export TERM=xterm-256color
 
+export KITTY_CONFIG_DIRECTORY=~/.config/kitty
 export PATH=$PATH:$HOME/.local/bin
 
 ##################################################################################################
@@ -106,5 +107,5 @@ source $HOME/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
